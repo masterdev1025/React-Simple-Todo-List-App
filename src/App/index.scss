@@ -1,0 +1,139 @@
+$dusk: #8241aa;
+$storm-11: #e8eaec;
+$storm-28: #c5c9ce;
+$storm-72: #687480;
+$storm-100: #2e3e4f;
+$white: #fff;
+
+html,
+body,
+.sidebar {
+  height: 100%;
+}
+
+body {background: $storm-11;}
+
+.sidebar {
+  background: $white;
+  font-size: 18px;
+  overflow: scroll;
+  padding: 80px 50px;
+}
+
+h5 {
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+p:first-of-type {
+  margin-bottom: 30px;
+}
+
+.Collapsible__trigger {
+  cursor: pointer;
+}
+
+ul.ul1 {
+  counter-reset: steps;
+  
+  > li {
+    background: url('https://i.ibb.co/q0zGpPB/clock.jpg') top right no-repeat;
+    margin-bottom: 32px;
+    padding-left: 20px;
+    position: relative;
+
+    &:last-of-type {margin-bottom: 0;}
+
+    &::after {
+      --size: 40px;
+      background: $storm-11;
+      border: 1px solid $storm-28;
+      border-radius: 50%;
+      color: $storm-100;
+      content: counter(steps);
+      counter-increment: steps;
+      font-size: 18px;
+      height: var(--size);
+      left: calc(-1 * var(--size));
+      line-height: var(--size);
+      position: absolute;
+      text-align: center;
+      top: 4px;
+      width: var(--size);
+    }
+    
+    &::before {
+      border-left: 1px solid $storm-28;
+      content: '';
+      height: 100%;
+      left: -20px;
+      position: absolute;
+      top: 40px;
+    }
+
+    &:last-of-type::before {
+      border: 0;
+    }
+  }
+  >li.complete{
+    &::after{
+      background-image: url('../check.png');
+      background-size: 40px 40px;
+      background-repeat: no-repeat;
+      display: inline-block;
+      color: $storm-100;
+      content:"";
+    }
+  }
+  ul {
+    list-style: none;
+    margin: 10px 0 0;
+    padding-left: 0;
+
+    li {
+      font-size: 16px;
+      margin-bottom: 10px;
+      text-decoration: underline;
+    }
+
+    img {
+      margin-right: 20px;
+    }
+  }
+}
+
+.activities--link {
+  color: $storm-72;
+  display: block;
+  font-size: 16px;
+  text-decoration: underline;
+}
+
+.activities--more {
+  margin: 0;
+  max-width: 292px;
+  padding: 0;
+
+  li {
+    border: 1px solid $storm-28;
+    border-radius: 10px;
+    font-size: initial;
+    font-weight: 100;
+    list-style: none;
+    margin-bottom: 15px;
+    padding: 10px 15px;
+
+    &:last-of-type {margin-bottom: 0;}
+  }
+
+  .activities--link {
+    color: $storm-100;
+    cursor: pointer;
+    float: right;
+    text-decoration: underline;
+  }
+}
+
+.completed {
+  text-decoration: line-through;
+}
